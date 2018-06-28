@@ -22,14 +22,17 @@ namespace waveSimulation
                 {
                     for(int j = 0; j < m; j++)
                     {
-                        matrica[i,j] = Convert.ToInt32(Console.ReadLine());
-                    }
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        double y = Convert.ToDouble(Console.ReadLine());
+                        matrica[i, j] = new Vector(x, y);
+                        
+                    } 
                 }
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < m; j++)
                     {
-                        Console.Write(matrica[i, j]);
+                        Console.Write("X:" + matrica[i, j].GetX() + "Y:" + matrica[i, j].GetY());
                         Console.Write(" ");
                     }
                     Console.WriteLine();
