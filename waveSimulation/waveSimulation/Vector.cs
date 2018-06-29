@@ -42,6 +42,31 @@ namespace waveSimulation
             this.y = y;
         }
 
+        double Izvod(double x, double y)
+        {
+
+            return 0;
+        }
+        public static Vector[,] MatrixGen(int sizex, int sizey)
+        {
+            Vector[,] rez = new Vector[sizex, sizey];
+            for (int i = 0; i < sizex; i++)
+            {
+                for (int j = 0; j < sizey; j++)
+                {
+
+                    rez[i, j] = new Vector(0, 0);
+
+                }
+            }
+            return rez;
+        }
+
+        public static Vector operator+ (Vector vec1, Vector vec2)
+        {
+            return new Vector(vec1.GetX() + vec2.GetX(), vec1.GetY() + vec2.GetY());
+        }
+
         Vector ScalProduct(Vector vec, double scl)
         {
             return new Vector(vec.GetX() * scl, vec.GetY() * scl);

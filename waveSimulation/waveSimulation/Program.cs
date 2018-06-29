@@ -10,45 +10,29 @@ namespace waveSimulation
     class Program
     {
         
-
-        double Izvod(double x, double y)
-        {
-
-            return 0;
-        }
-
         static void Main(string[] args)
         {
+
+            /*
+                Generating vector field with all vectors set to [0,0]
+            */
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
-            Vector[,] matrica = new Vector[n, m];
+
+            Vector[,] matrica = Vector.MatrixGen(n, m);
             int[,] matricab = new int[n, m];
             
-            int t = 0;
-            while(t < 1)
+            //prints out vector field
+            for (int i = 0; i < n; i++)
             {
-                for(int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++)
                 {
-                    for(int j = 0; j < m; j++)
-                    {
-                        double x = Convert.ToDouble(Console.ReadLine());
-                        double y = Convert.ToDouble(Console.ReadLine());
-                        matrica[i, j] = new Vector(x, y);
-                        
-                    } 
+                    Console.Write("X:" + matrica[i, j].GetX() + "Y:" + matrica[i, j].GetY());
+                    Console.Write(" ");
                 }
-                for (int i = 0; i < n; i++)
-                {
-                    for (int j = 0; j < m; j++)
-                    {
-                        Console.Write("X:" + matrica[i, j].GetX() + "Y:" + matrica[i, j].GetY());
-                        Console.Write(" ");
-                    }
-                    Console.WriteLine();
-                }
-                t++;
+                Console.WriteLine();
             }
-            Console.WriteLine("........end........");
+        Console.WriteLine("........end........");
         }
     }
 }
