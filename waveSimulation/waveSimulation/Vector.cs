@@ -62,14 +62,21 @@ namespace waveSimulation
             return rez;
         }
 
-        public static Vector operator+ (Vector vec1, Vector vec2)
+        public static Vector operator +(Vector vec1, Vector vec2)
         {
             return new Vector(vec1.GetX() + vec2.GetX(), vec1.GetY() + vec2.GetY());
         }
 
-        Vector ScalProduct(Vector vec, double scl)
+        public static Vector operator -(Vector vec1, Vector vec2)
+        {
+            return new Vector(vec1.GetX() - vec2.GetX(), vec1.GetY() - vec2.GetY());
+        }
+
+        public static Vector operator*(Vector vec, double scl)
         {
             return new Vector(vec.GetX() * scl, vec.GetY() * scl);
         }
+
+        
     }
 }

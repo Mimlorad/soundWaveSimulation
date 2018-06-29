@@ -18,7 +18,6 @@ namespace waveSimulation
             */
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
-
             Vector[,] matrica = Vector.MatrixGen(n, m);
             int[,] matricab = new int[n, m];
             
@@ -32,7 +31,11 @@ namespace waveSimulation
                 }
                 Console.WriteLine();
             }
-        Console.WriteLine("........end........");
+
+            //Vector vector1 = new Vector(1, 3);
+            //Vector vector2 = new Vector(1, 3);
+            //Vector vector3 = vector1 + vector2;
+            Console.WriteLine("........end........");
         }
     }
 }
