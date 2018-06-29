@@ -45,11 +45,16 @@ namespace waveSimulation
 
     class Program
     {
-        
-        double izvod(double x, double y)
+        Vector SkalProizvod(Vector vec, double scl)
+        {
+            return new Vector(vec.GetX()*scl, vec.GetY()*scl);
+        }
+
+        double Izvod(double x, double y)
         {
             return 0;
         }
+
         static void Main(string[] args)
         {
             int n = Convert.ToInt32(Console.ReadLine());
@@ -81,7 +86,7 @@ namespace waveSimulation
                 }
                 t++;
             }
-            Console.WriteLine("end");
+            Console.WriteLine("........end........");
         }
     }
 }
