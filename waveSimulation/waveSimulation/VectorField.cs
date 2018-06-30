@@ -8,9 +8,29 @@ namespace waveSimulation
 {
     class VectorField
     {
+
+        public VectorField(VectorField preVectorField)
+        {
+            this.field = preVectorField.field;
+        }
+
+        public VectorField(Vector[,] matrica, int sizex, int sizey)
+        {
+            for (int i = 0; i < sizex; i++)
+            {
+                for (int j = 0; j < sizey; j++)
+                {
+
+                    this.field[i, j] = new Vector(Convert.ToInt32(Console.ReadLine()),Convert.ToInt32(Console.ReadLine()));
+
+                }
+            }
+        }
+
         public VectorField(int sizex, int sizey)
         {
             this.field = new Vector[sizex, sizey];
+ 
             for (int i = 0; i < sizex; i++)
             {
                 for (int j = 0; j < sizey; j++)
@@ -37,7 +57,7 @@ namespace waveSimulation
             return (this.field[posX, posY + 1] - this.field[posX, posY]) * (1 / dy);
         }
 
-        public VectorField Pojebi(VectorField main)
+        public VectorField Pojebiz(VectorField main)
         {
             return new VectorField(0,0);
         }
@@ -54,17 +74,66 @@ namespace waveSimulation
             }
         }
 
-        public VectorField Pojebi(int n, int m) { 
-            for(int i = 0; i<n; i++)
+        public VectorField PojebiX(int x, int y)
+        {
+            VectorField rez = new VectorField(this);
+
+            for (int i = 0; i < x - 1; i++)
             {
-                for(int j = 0; j<m; j++)
+                for (int j = 0; j < y - 1; j++)
                 {
-                    poljea[i, j] = polje.IzvodX(i, j, 0.01);
-                    poljeb[i, j] = polje.IzvodY(i, j, 0.01);
+                    rez[i, j] = this.IzvodX(i, j, this.dx);
                 }
             }
-        return new VectorField()
+
+            return rez;
         }
+        public VectorField PojebiY(int x, int y)
+        {
+            VectorField rez = new VectorField(this);
+
+            for (int i = 0; i < x - 1; i++)
+            {
+                for (int j = 0; j < y - 1; j++)
+                {
+                    rez[i, j] = this.IzvodY(i, j, this.dy);
+                }
+            }
+
+            return rez;
+        }
+
+        public VectorField PojebiX2(int x, int y)
+        {
+            VectorField rez = this.PojebiX(x, y);
+
+            for (int i = 0; i < x -1; i++)
+            {
+                for (int j = 0; j < y - 1; j++)
+                {
+                    rez[i, j] = this.IzvodX(i, j, this.dx);
+                }
+            }
+
+            return rez;
+        }
+
+        public VectorField PojebiY2(int x, int y)
+        {
+            VectorField rez = this.PojebiY(x, y);
+
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    rez[i, j] = this.IzvodY(i, j, this.dy);
+                }
+            }
+
+            return rez;
+        }
+
+
         private Vector[,] field;
 
             public double dx = 0.01;

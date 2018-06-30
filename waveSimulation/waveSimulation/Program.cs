@@ -4,46 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace waveSimulation
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
-
-            /*
-                Generating vector field with all vectors set to [0,0]
-            */
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
-            //Vector[,] matrica = Vector.MatrixGen(n, m);
-            //int[,] matricab = new int[n, m];
             
-            //prints out vector field
-            /*for (int i = 0; i < n; i++)
+            VectorField polje = new VectorField(n, m);
+            VectorField izvodPolja = polje.PojebiX(n, m);
+            for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write("X:" + matrica[i, j].GetX() + "Y:" + matrica[i, j].GetY());
-                    Console.Write(" ");
+                    polje[i, j].SetX(izvodPolja[i, j].GetX());
                 }
-                Console.WriteLine();
-            } */
-            VectorField polje = new VectorField(n, m);
-            VectorField poljea = new VectorField(n, m);
-            VectorField poljeb = new VectorField(n, m);
-            //Vector vector1 = new Vector(1, 3);
-            //Vector vector2 = new Vector(1, 3);
-            //Vector vector3 = vector1 + vector2;
-            Console.WriteLine("........end........");
-            Vector b = new Vector();
+            }
 
-            
-            b = polje.IzvodX(1, 1, 0.01);
-            Console.WriteLine("X:" + b.GetX() + "Y:" + b.GetY());
+            izvodPolja = polje.PojebiY(n, m);
 
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    polje[i, j].SetY(izvodPolja[i, j].GetY());
+                }
+            }
+
+            Console.WriteLine("\n........end........");
         }
     }
 }
