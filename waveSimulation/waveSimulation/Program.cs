@@ -32,11 +32,15 @@ namespace waveSimulation
                 Console.WriteLine();
             } */
             VectorField polje = new VectorField(n, m);
+            VectorField poljea = new VectorField(n, m);
+            VectorField poljeb = new VectorField(n, m);
             //Vector vector1 = new Vector(1, 3);
             //Vector vector2 = new Vector(1, 3);
             //Vector vector3 = vector1 + vector2;
             Console.WriteLine("........end........");
             Vector b = new Vector();
+
+            
             b = polje.IzvodX(1, 1, 0.01);
             Console.WriteLine("X:" + b.GetX() + "Y:" + b.GetY());
 
