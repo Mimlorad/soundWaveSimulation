@@ -15,26 +15,34 @@ namespace waveSimulation
                 {
                     for (int j = 0; j < sizey; j++)
                     {
-
+                        
                         this.field[i, j] = new Vector(0, 0);
 
                     }
                 }
             }
-
+            
+            public Vector Funkcija(Vector x)
+            {
+                return x;
+            }
+            
             public Vector IzvodX(int posX, int posY, double dx)
             {
-                Vector rez = (this.field[posX, posY] - this.field[posX + 1, posY]) * (1 / dx);
+                Vector rez = (this.field[posX + 1, posY] - this.field[posX, posY]) * (1 / dx);
                 return rez;
             }
 
             public Vector IzvodY(int posX, int posY, double dy)
             {
-                Vector rez = (this.field[posX, posY] - this.field[posX, posY + 1]) * (1 / dy);
+                Vector rez = ( this.field[posX, posY + 1] - this.field[posX, posY]) * (1 / dy);
                 return rez;
             }
 
-
+            public VectorField Pojebi(VectorField main)
+            {
+                
+            } 
 
             private Vector[,] field;
 
