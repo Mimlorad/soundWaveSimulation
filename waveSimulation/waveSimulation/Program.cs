@@ -27,7 +27,7 @@ namespace waveSimulation
             /*
              *  Vrsi izvod po X 
              */
-            VectorField izvodPolja = polje.PojebiX(n, m);
+            VectorField izvodPolja = polje.PojebiX2(n, m);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
@@ -40,7 +40,7 @@ namespace waveSimulation
              *  Vrsi izvod po Y
              */
             
-            izvodPolja = polje.PojebiY(n, m) ;
+            izvodPolja = polje.PojebiY2(n, m);
 
             for (int i = 0; i < n; i++)
             {
@@ -59,8 +59,7 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write("X:" + polje[i, j].GetX() + "Y:" + polje[i, j].GetY());
-                    Console.Write(" ");
+                    Console.Write(polje[i, j].stampanje());
                 }
                 Console.WriteLine();
             }

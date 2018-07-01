@@ -82,11 +82,18 @@ namespace waveSimulation
         {
             VectorField rez = new VectorField(this);
 
-            for (int i = 0; i < x - 1; i++)
+            for (int i = 0; i < x; i++)
             {
-                for (int j = 0; j < y - 1; j++)
+                for (int j = 0; j < y; j++)
                 {
-                    rez[i, j] = this.IzvodX(i, j, this.dx);
+                    if(i == x - 1)
+                    {
+                        rez[i, j] = new Vector(0, 0);
+                    }
+                    else
+                    {
+                        rez[i, j] = this.IzvodX(i, j, this.dx);
+                    }
                 }
             }
 
@@ -96,11 +103,19 @@ namespace waveSimulation
         {
             VectorField rez = new VectorField(this);
 
-            for (int i = 0; i < x - 1; i++)
+            for (int i = 0; i < x; i++)
             {
-                for (int j = 0; j < y - 1; j++)
+                for (int j = 0; j < y; j++)
                 {
-                    rez[i, j] = this.IzvodY(i, j, this.dy);
+                    if(j == y - 1)
+                    {
+                        rez[i, j] = new Vector(0, 0);
+                    }
+                    else
+                    {
+                        rez[i, j] = this.IzvodY(i, j, this.dy);
+                    }
+                    
                 }
             }
 
@@ -111,11 +126,18 @@ namespace waveSimulation
         {
             VectorField rez = this.PojebiX(x, y);
 
-            for (int i = 0; i < x - 1; i++)
+            for (int i = 0; i < x; i++)
             {
-                for (int j = 0; j < y - 1; j++)
+                for (int j = 0; j < y; j++)
                 {
-                    rez[i, j] = rez.IzvodX(i, j, this.dx);
+                    if(i == x - 1)
+                    {
+                        rez[i, j] = new Vector(0, 0);
+                    }
+                    else
+                    {
+                        rez[i, j] = rez.IzvodX(i, j, this.dx);
+                    }
                 }
             }
 
@@ -130,7 +152,14 @@ namespace waveSimulation
             {
                 for (int j = 0; j < y; j++)
                 {
-                    rez[i, j] = rez.IzvodY(i, j, this.dy);
+                    if(j == y - 1)
+                    {
+                        rez[i, j] = new Vector(0, 0);
+                    }
+                    else
+                    {
+                        rez[i, j] = rez.IzvodY(i, j, this.dy);
+                    }
                 }
             }
 

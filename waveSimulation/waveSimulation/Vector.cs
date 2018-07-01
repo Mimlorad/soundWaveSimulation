@@ -77,6 +77,10 @@ namespace waveSimulation
             return new Vector(vec.GetX() * scl, vec.GetY() * scl);
         }
 
+        public string stampanje()
+        {
+            return ("x:" + Convert.ToString(this.GetX()) + ",y:" + Convert.ToString(this.GetY()) + "  ");
+        }
         
     }
 }
