@@ -42,11 +42,6 @@ namespace waveSimulation
             this.y = y;
         }
 
-        double Izvod(double x, double y)
-        {
-
-            return 0;
-        }
         public static Vector[,] MatrixGen(int sizex, int sizey)
         {
             Vector[,] rez = new Vector[sizex, sizey];
@@ -75,6 +70,11 @@ namespace waveSimulation
         public static Vector operator*(Vector vec, double scl)
         {
             return new Vector(vec.GetX() * scl, vec.GetY() * scl);
+        }
+
+        public static Vector operator /(Vector vec, double scl)
+        {
+            return new Vector(vec.GetX() / scl, vec.GetY() / scl);
         }
 
         public string stampanje()

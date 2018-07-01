@@ -35,9 +35,9 @@ namespace waveSimulation
         {
             this.field = new Vector[sizex, sizey];
 
-            for (int i = 0; i < sizex; i++)
+            for (int i = 0; i < sizey; i++)
             {
-                for (int j = 0; j < sizey; j++)
+                for (int j = 0; j < sizex; j++)
                 {
 
                     this.field[i, j] = new Vector(0, 0);
@@ -53,12 +53,12 @@ namespace waveSimulation
 
         public Vector IzvodX(int posX, int posY, double dx)
         {
-            return (this.field[posX + 1, posY] - this.field[posX, posY]) * (1 / dx);
+            return (this.field[posX + 1, posY] - this.field[posX, posY]) / dx;
         }
 
         public Vector IzvodY(int posX, int posY, double dy)
         {
-            return (this.field[posX, posY + 1] - this.field[posX, posY]) * (1 / dy);
+            return (this.field[posX, posY + 1] - this.field[posX, posY]) / dy;
         }
 
         public VectorField Pojebiz(VectorField main)
