@@ -12,16 +12,20 @@ namespace waveSimulation
         public VectorField(VectorField preVectorField)
         {
             this.field = preVectorField.field;
+            this.sizex = preVectorField.sizex;
+            this.sizey = preVectorField.sizey;
         }
 
         public VectorField(Vector[,] matrica, int sizex, int sizey)
         {
+            this.sizex = sizex;
+            this.sizey = sizey;
             for (int i = 0; i < sizex; i++)
             {
                 for (int j = 0; j < sizey; j++)
                 {
 
-                    this.field[i, j] = new Vector(Convert.ToInt32(Console.ReadLine()),Convert.ToInt32(Console.ReadLine()));
+                    this.field[i, j] = new Vector(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
 
                 }
             }
@@ -30,23 +34,23 @@ namespace waveSimulation
         public VectorField(int sizex, int sizey)
         {
             this.field = new Vector[sizex, sizey];
- 
+
             for (int i = 0; i < sizex; i++)
             {
                 for (int j = 0; j < sizey; j++)
                 {
-                        
+
                     this.field[i, j] = new Vector(0, 0);
 
                 }
             }
         }
-            
+
         public Vector Funkcija(Vector x)
         {
             return x;
         }
-            
+
         public Vector IzvodX(int posX, int posY, double dx)
         {
             return (this.field[posX + 1, posY] - this.field[posX, posY]) * (1 / dx);
@@ -59,7 +63,7 @@ namespace waveSimulation
 
         public VectorField Pojebiz(VectorField main)
         {
-            return new VectorField(0,0);
+            return new VectorField(0, 0);
         }
 
         public Vector this[int x, int y]
@@ -107,11 +111,11 @@ namespace waveSimulation
         {
             VectorField rez = this.PojebiX(x, y);
 
-            for (int i = 0; i < x -1; i++)
+            for (int i = 0; i < x - 1; i++)
             {
                 for (int j = 0; j < y - 1; j++)
                 {
-                    rez[i, j] = this.IzvodX(i, j, this.dx);
+                    rez[i, j] = rez.IzvodX(i, j, this.dx);
                 }
             }
 
@@ -126,17 +130,28 @@ namespace waveSimulation
             {
                 for (int j = 0; j < y; j++)
                 {
-                    rez[i, j] = this.IzvodY(i, j, this.dy);
+                    rez[i, j] = rez.IzvodY(i, j, this.dy);
                 }
             }
 
             return rez;
         }
 
+        //public VectorField Razjebi(int x, int y)
+        //{
+        //    return 
+        //}
+
+        //public void Copy(VectorField dest, VectorField src)
+        //{
+        //
+        //}
 
         private Vector[,] field;
 
-            public double dx = 0.01;
-            public double dy = 0.01;
+        public double dx = 0.01;
+        public double dy = 0.01;
+        int sizex;
+        int sizey;
     }
 }

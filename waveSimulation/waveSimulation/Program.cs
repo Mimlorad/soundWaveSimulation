@@ -10,10 +10,23 @@ namespace waveSimulation
     {
         static void Main(string[] args)
         {
-            int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
+            int n = Convert.ToInt32(Console.ReadLine());
             
             VectorField polje = new VectorField(n, m);
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    double x = Convert.ToDouble(Console.ReadLine());
+                    double y = Convert.ToDouble(Console.ReadLine());
+                    polje[i, j] = new Vector(x, y);
+                }
+            }
+            /*
+             *  Vrsi izvod po X 
+             */
             VectorField izvodPolja = polje.PojebiX(n, m);
             for (int i = 0; i < n; i++)
             {
@@ -23,7 +36,11 @@ namespace waveSimulation
                 }
             }
 
-            izvodPolja = polje.PojebiY(n, m);
+            /*
+             *  Vrsi izvod po Y
+             */
+            
+            izvodPolja = polje.PojebiY(n, m) ;
 
             for (int i = 0; i < n; i++)
             {
@@ -31,6 +48,21 @@ namespace waveSimulation
                 {
                     polje[i, j].SetY(izvodPolja[i, j].GetY());
                 }
+            }
+            
+            /*
+             *  Stampa original matricu
+             */
+
+            Console.WriteLine("posle prvog izvoda");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write("X:" + polje[i, j].GetX() + "Y:" + polje[i, j].GetY());
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
             }
 
             Console.WriteLine("\n........end........");
