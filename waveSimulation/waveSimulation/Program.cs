@@ -59,7 +59,7 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write(polje[j, i].stampanje());
+                    Console.Write(polje[i, j].stampanje());
                 }
                 Console.WriteLine();
             }

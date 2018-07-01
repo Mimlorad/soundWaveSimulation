@@ -35,9 +35,9 @@ namespace waveSimulation
         {
             this.field = new Vector[sizex, sizey];
 
-            for (int i = 0; i < sizey; i++)
+            for (int i = 0; i < sizex; i++)
             {
-                for (int j = 0; j < sizex; j++)
+                for (int j = 0; j < sizey; j++)
                 {
 
                     this.field[i, j] = new Vector(0, 0);
