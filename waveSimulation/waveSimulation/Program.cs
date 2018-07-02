@@ -16,13 +16,13 @@ namespace waveSimulation
             VectorField polje = new VectorField(n, m);
             VectorField testMatrica = new VectorField(100, 100);
 
-            for(int i = 0; i < 100; i++)
+            double dx = 0.01;
+            double dy = 0.01;
+            for (int i = 0; i < n; i++)
             {
-                for(int j = 0; j < 100; j++)
+                for(int j = 0; j < m; j++)
                 {
-                    double dx = 0.01;
-                    double dy = 0.01;
-                    testMatrica[i, j] = new Vector(i * dx, i * dy);
+                    testMatrica[i, j] = new Vector(i * i + 3 * j, 5 * j) ;
                 }
             }
 
@@ -33,35 +33,35 @@ namespace waveSimulation
                 {
                     //double x = Convert.ToDouble(Console.ReadLine());
                     //double y = Convert.ToDouble(Console.ReadLine());
-                    polje[i, j] = new Vector(i, j);
+                    //polje[i, j] = new Vector(i, j);
+                    //testMatrica[i, j] = new Vector(x * , y);
                 }
             }
             /*
              *  Vrsi izvod po X (ako je X2 onda je to drugi izvod)
              */
-            //VectorField izvodPolja = polje.PojebiX(n, m);
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < m; j++)
-            //    {
-            //        polje[i, j].SetX(izvodPolja[i, j].GetX());
-            //    }
-            //}
+            VectorField izvodPolja = testMatrica.PojebiX(n, m);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    polje[i, j].SetX(izvodPolja[i, j].GetX());
+                }
+            }
 
             /*
              *  Vrsi izvod po Y (ako je Y2 onda je to drugi izvod)
              */
 
-            //izvodPolja = polje.PojebiY(n, m);
+            izvodPolja = testMatrica.PojebiY(n, m);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    polje[i, j].SetY(izvodPolja[i, j].GetY());
+                }
+            }
 
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < m; j++)
-            //    {
-            //        polje[i, j].SetY(izvodPolja[i, j].GetY());
-            //    }
-            //}
-            
             /*
              *  Stampa original matricu
              */
@@ -71,7 +71,7 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write(polje[i, j].stampanje());
+                    Console.Write(testMatrica[i, j].stampanje());
                 }
                 Console.WriteLine();
             }
