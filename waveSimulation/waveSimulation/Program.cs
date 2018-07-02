@@ -16,8 +16,8 @@ namespace waveSimulation
             VectorField polje = new VectorField(n, m);
             VectorField testMatrica = new VectorField(100, 100);
 
-            double dx = 0.01;
-            double dy = 0.01;
+            //double dx = 0.01;
+            //double dy = 0.01;
             for (int i = 0; i < n; i++)
             {
                 for(int j = 0; j < m; j++)
@@ -26,7 +26,8 @@ namespace waveSimulation
                 }
             }
 
-
+            /*
+            //make matrix from given input
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
@@ -36,7 +37,7 @@ namespace waveSimulation
                     //polje[i, j] = new Vector(i, j);
                     //testMatrica[i, j] = new Vector(x * , y);
                 }
-            }
+            }*/
             /*
              *  Vrsi izvod po X (ako je X2 onda je to drugi izvod)
              */
@@ -45,7 +46,8 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    polje[i, j].SetX(izvodPolja[i, j].GetX());
+                    testMatrica[i, j].X = izvodPolja[i, j].X;
+                    //testMatrica[i, j].Y = izvodPolja[i, j].Y;
                 }
             }
 
@@ -58,7 +60,9 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    polje[i, j].SetY(izvodPolja[i, j].GetY());
+                    //testMatrica[i, j].X = izvodPolja[i, j].X;
+                    testMatrica[i, j].Y = izvodPolja[i, j].Y;
+                    
                 }
             }
 

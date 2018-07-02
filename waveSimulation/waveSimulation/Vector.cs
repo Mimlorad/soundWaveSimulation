@@ -11,6 +11,19 @@ namespace waveSimulation
         private double x;
         private double y;
 
+        public double X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+
+        public double Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
+
         public Vector(double x, double y)
         {
             this.x = x;
@@ -21,27 +34,7 @@ namespace waveSimulation
         {
             this.x = 0; this.y = 0;
         }
-
-        public double GetX()
-        {
-            return this.x;
-        }
-
-        public double GetY()
-        {
-            return this.y;
-        }
-
-        public void SetX(double x)
-        {
-            this.x = x;
-        }
-
-        public void SetY(double y)
-        {
-            this.y = y;
-        }
-
+        
         public static Vector[,] MatrixGen(int sizex, int sizey)
         {
             Vector[,] rez = new Vector[sizex, sizey];
@@ -59,27 +52,27 @@ namespace waveSimulation
 
         public static Vector operator +(Vector vec1, Vector vec2)
         {
-            return new Vector(vec1.GetX() + vec2.GetX(), vec1.GetY() + vec2.GetY());
+            return new Vector(vec1.X + vec2.X, vec1.Y + vec2.Y);
         }
 
         public static Vector operator -(Vector vec1, Vector vec2)
         {
-            return new Vector(vec1.GetX() - vec2.GetX(), vec1.GetY() - vec2.GetY());
+            return new Vector(vec1.X - vec2.X, vec1.Y - vec2.Y);
         }
 
         public static Vector operator*(Vector vec, double scl)
         {
-            return new Vector(vec.GetX() * scl, vec.GetY() * scl);
+            return new Vector(vec.X * scl, vec.Y * scl);
         }
 
         public static Vector operator /(Vector vec, double scl)
         {
-            return new Vector(vec.GetX() / scl, vec.GetY() / scl);
+            return new Vector(vec.X / scl, vec.Y / scl);
         }
 
         public string stampanje()
         {
-            return ("x:" + Convert.ToString(this.GetX()) + ",y:" + Convert.ToString(this.GetY()) + "  ");
+            return ("x:" + Convert.ToString(this.X) + ",y:" + Convert.ToString(this.Y) + "  ");
         }
         
     }

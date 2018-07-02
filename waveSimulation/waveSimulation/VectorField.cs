@@ -11,10 +11,32 @@ namespace waveSimulation
 
         public VectorField(VectorField preVectorField)
         {
-            this.field = preVectorField.field;
-            this.sizex = preVectorField.sizex;
-            this.sizey = preVectorField.sizey;
+            
+            this.sizex = preVectorField.sizeX;
+            this.sizey = preVectorField.sizeY;
+            this.field = new Vector[this.sizex, this.sizey];
+            for (int i = 0; i < sizex; i++)
+            {
+                for (int j = 0; j < sizey; j++)
+                {
+                    this.field[i, j] = new Vector(preVectorField[i,j].X, preVectorField[i,j].Y);
+                }
+            }
+
         }
+
+        public int sizeX
+        {
+            get { return sizex; }
+            set { sizex = value; }
+        }
+
+        public int sizeY
+        {
+            get { return sizey; }
+            set { sizey = value; }
+        }
+
 
         public VectorField(Vector[,] matrica, int sizex, int sizey)
         {
@@ -34,6 +56,7 @@ namespace waveSimulation
         public VectorField(int sizex, int sizey)
         {
             this.field = new Vector[sizex, sizey];
+            this.sizex = sizex; this.sizey = sizey;
 
             for (int i = 0; i < sizex; i++)
             {
@@ -44,11 +67,6 @@ namespace waveSimulation
 
                 }
             }
-        }
-
-        public Vector Funkcija(Vector x)
-        {
-            return x;
         }
 
         public Vector IzvodX(int posX, int posY, double dx)
