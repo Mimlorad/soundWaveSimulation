@@ -14,6 +14,18 @@ namespace waveSimulation
             int n = Convert.ToInt32(Console.ReadLine());
             
             VectorField polje = new VectorField(n, m);
+            VectorField testMatrica = new VectorField(100, 100);
+
+            for(int i = 0; i < 100; i++)
+            {
+                for(int j = 0; j < 100; j++)
+                {
+                    double dx = 0.01;
+                    double dy = 0.01;
+                    testMatrica[i, j] = new Vector(i * dx, i * dy);
+                }
+            }
+
 
             for (int i = 0; i < n; i++)
             {
