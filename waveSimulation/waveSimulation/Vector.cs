@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace waveSimulation
 {
-    public class Vector
+    public struct Vector
     {
         private double x;
         private double y;
@@ -30,10 +30,10 @@ namespace waveSimulation
             this.y = y;
         }
 
-        public Vector()
-        {
-            this.x = 0; this.y = 0;
-        }
+        //public Vector()
+        //{
+        //    this.x = 0; this.y = 0;
+        //}
         
         public static Vector[,] MatrixGen(int sizex, int sizey)
         {

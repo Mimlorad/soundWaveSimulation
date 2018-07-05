@@ -98,7 +98,7 @@ namespace waveSimulation
 
         public VectorField PojebiX(int x, int y)
         {
-            VectorField rez = new VectorField(this);
+            VectorField rez = new VectorField(x, y);
 
             for (int i = 0; i < x; i++)
             {
@@ -119,7 +119,7 @@ namespace waveSimulation
         }
         public VectorField PojebiY(int x, int y)
         {
-            VectorField rez = new VectorField(this);
+            VectorField rez = new VectorField(x, y);
 
             for (int i = 0; i < x; i++)
             {

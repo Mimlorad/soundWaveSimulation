@@ -14,15 +14,17 @@ namespace waveSimulation
             int n = Convert.ToInt32(Console.ReadLine());
             
             VectorField polje = new VectorField(n, m);
-            VectorField testMatrica = new VectorField(100, 100);
+            VectorField testMatrica = new VectorField(n, m);
 
-            //double dx = 0.01;
-            //double dy = 0.01;
+            double dx = 0.01;
+            double dy = 0.01;
             for (int i = 0; i < n; i++)
             {
                 for(int j = 0; j < m; j++)
                 {
-                    testMatrica[i, j] = new Vector(i * i + 3 * j, 5 * j) ;
+                    double x = i * dx;
+                    double y = j * dy;
+                    testMatrica[i, j] = new Vector(x * x, x * y);
                 }
             }
 
@@ -46,7 +48,7 @@ namespace waveSimulation
             {
                 for (int j = 0; j < m; j++)
                 {
-                    testMatrica[i, j].X = izvodPolja[i, j].X;
+                    testMatrica[i, j] = izvodPolja[i, j];
                     //testMatrica[i, j].Y = izvodPolja[i, j].Y;
                 }
             }
@@ -55,16 +57,16 @@ namespace waveSimulation
              *  Vrsi izvod po Y (ako je Y2 onda je to drugi izvod)
              */
 
-            izvodPolja = testMatrica.PojebiY(n, m);
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < m; j++)
-                {
-                    //testMatrica[i, j].X = izvodPolja[i, j].X;
-                    testMatrica[i, j].Y = izvodPolja[i, j].Y;
-                    
-                }
-            }
+            //izvodPolja = testMatrica.PojebiY(n, m);
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j < m; j++)
+            //    {
+            //        //testMatrica[i, j].X = izvodPolja[i, j].X;
+            //        testMatrica[i, j] = izvodPolja[i, j];
+
+            //    }
+            //}
 
             /*
              *  Stampa original matricu
