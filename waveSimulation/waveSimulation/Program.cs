@@ -16,6 +16,8 @@ namespace waveSimulation
             VectorField polje = new VectorField(n, m);
             VectorField testMatrica = new VectorField(n, m);
 
+            
+
             double dx = 0.01;
             double dy = 0.01;
             for (int i = 0; i < n; i++)

@@ -184,15 +184,22 @@ namespace waveSimulation
             return rez;
         }
 
+
+
         //public VectorField Razjebi(int x, int y)
         //{
-        //    return 
+        //        
         //}
 
-        //public void Copy(VectorField dest, VectorField src)
+        //public double[,] skalMatrica(int x, int y)
         //{
-        //
+        //    return new double[x, y];
         //}
+
+        public double[,] Divergence()
+        {
+            return new double[,];
+        }
 
         private Vector[,] field;
 
