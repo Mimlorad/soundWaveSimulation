@@ -8,7 +8,7 @@ namespace waveSimulation
 {
     class VectorField
     {
-
+        
         public VectorField(VectorField preVectorField)
         {
             
@@ -139,7 +139,7 @@ namespace waveSimulation
 
             return rez;
         }
-
+        
         public VectorField PojebiX2(int x, int y)
         {
             VectorField rez = this.PojebiX(x, y);
