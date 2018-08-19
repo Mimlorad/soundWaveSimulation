@@ -196,10 +196,10 @@ namespace waveSimulation
         //    return new double[x, y];
         //}
 
-        public double[,] Divergence()
-        {
-            return new double[,];
-        }
+        //public double[,] Divergence()
+        //{
+        //    return new double[,];
+        //}
 
         private Vector[,] field;
 
