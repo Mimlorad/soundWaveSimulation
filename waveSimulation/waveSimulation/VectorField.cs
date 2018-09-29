@@ -79,10 +79,10 @@ namespace waveSimulation
             return (this.field[posX, posY + 1] - this.field[posX, posY]) / dy;
         }
 
-        public VectorField Pojebiz(VectorField main)
-        {
-            return new VectorField(0, 0);
-        }
+        //public VectorField Pojebiz(VectorField main)
+        //{
+        //    return new VectorField(0, 0);
+        //}
 
         public Vector this[int x, int y]
         {
@@ -184,7 +184,20 @@ namespace waveSimulation
             return rez;
         }
 
+        public VectorField gradient(int[,] scalarField, int scalarSizeX, int scalarSizeY)
+        {
+            //foreach u skalarno krljas izvod
+            VectorField resultField = new VectorField(scalarSizeX, scalarSizeY);
 
+            for(int x = 0; x < scalarSizeX; ++x)
+            {
+                for(int y = 0; y < scalarSizeY; ++y)
+                {
+                    resultField[x, y] = new Vector();
+                }
+            }
+            return new VectorField(0, 0);
+        }
 
         //public VectorField Razjebi(int x, int y)
         //{

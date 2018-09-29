@@ -12,7 +12,10 @@ namespace waveSimulation
         {
             int m = Convert.ToInt32(Console.ReadLine());
             int n = Convert.ToInt32(Console.ReadLine());
-            
+
+            int pocetnoX = Convert.ToInt32(Console.ReadLine());
+            int pocetnoY = Convert.ToInt32(Console.ReadLine());
+
             VectorField polje = new VectorField(n, m);
             VectorField testMatrica = new VectorField(n, m);
 
@@ -85,6 +88,7 @@ namespace waveSimulation
             }
 
             Console.WriteLine("\n........end........");
+            Console.ReadKey();
         }
     }
 }
